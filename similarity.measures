@@ -1,0 +1,304 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "cb417df2-ed92-4948-81f1-06b179c0f750",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np \n",
+    "from scipy.spatial.distance import cosine,euclidean\n",
+    "from scipy.stats import pearsonr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "560da618-ddf0-4263-b0e6-e3b2f5382fd6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "user1 = np.array([4, 5, 2, 3, 4])\n",
+    "user2 = np.array([5, 3, 2, 4, 5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "49103166-bd39-42b6-b5cb-26c066f7ead1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 0.9548\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 1 - cosine(user1, user2)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "2f9da206-5fc3-4b4c-8461-f3b99c8ae073",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Pearson Correlation Similarity: 0.4372\n"
+     ]
+    }
+   ],
+   "source": [
+    "pearson_corr,_ = pearsonr(user1, user2)\n",
+    "print(f\"Pearson Correlation Similarity: {pearson_corr:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "e79562d5-3f88-4ffa-a589-20b84053dd64",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Euclidean Distance Similarity: 0.2743\n"
+     ]
+    }
+   ],
+   "source": [
+    "euclidean_distance = euclidean(user1, user2)\n",
+    "euclidean_similarity = 1 / (1 + euclidean_distance) \n",
+    "print(f\"Euclidean Distance Similarity: {euclidean_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "7d4c7ec1-b4f9-4b17-a8fa-e857ae993291",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "user1 = np.array([5, 3, 4, 4, 2])\n",
+    "user2 = np.array([3, 1, 2, 3, 3])\n",
+    "user3 = np.array([4, 3, 4, 5, 1])\n",
+    "user4 = np.array([2, 2, 1, 2, 4])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "4c4a517d-1f57-404b-bb7a-8a19e3a137ac",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 0.9297\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 1 - cosine(user1, user2)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "3cbb2a4e-e216-46f6-8840-0b3deb571405",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 1.7260\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 2 - cosine(user3, user4)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "c55ca946-6f7e-44e7-a3fa-4a1c234fa1b0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 1.9783\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 2 - cosine(user3, user1)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "0a057b52-d649-464d-ab1f-70e79b7b21cb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 1.7990\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 2 - cosine(user1, user4)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "9caafbf3-a68b-4269-a914-1de07497a27f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 1.9191\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 2 - cosine(user2, user4)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "eef93932-e25b-4020-939d-c2abd2a78f24",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosine Similarity: 1.8855\n"
+     ]
+    }
+   ],
+   "source": [
+    "cosine_similarity = 2 - cosine(user3, user2)\n",
+    "print(f\"Cosine Similarity: {cosine_similarity:.4f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "2886c4d3-5c3c-4465-8d42-1dba36d116ec",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'pd' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[13], line 10\u001b[0m\n\u001b[1;32m      2\u001b[0m ratings \u001b[38;5;241m=\u001b[39m np\u001b[38;5;241m.\u001b[39marray([\n\u001b[1;32m      3\u001b[0m     [\u001b[38;5;241m5\u001b[39m, \u001b[38;5;241m3\u001b[39m, \u001b[38;5;241m4\u001b[39m, \u001b[38;5;241m4\u001b[39m, \u001b[38;5;241m2\u001b[39m],  \u001b[38;5;66;03m# User A\u001b[39;00m\n\u001b[1;32m      4\u001b[0m     [\u001b[38;5;241m3\u001b[39m, \u001b[38;5;241m1\u001b[39m, \u001b[38;5;241m2\u001b[39m, \u001b[38;5;241m3\u001b[39m, \u001b[38;5;241m3\u001b[39m],  \u001b[38;5;66;03m# User B\u001b[39;00m\n\u001b[1;32m      5\u001b[0m     [\u001b[38;5;241m4\u001b[39m, \u001b[38;5;241m3\u001b[39m, \u001b[38;5;241m4\u001b[39m, \u001b[38;5;241m5\u001b[39m, \u001b[38;5;241m1\u001b[39m],  \u001b[38;5;66;03m# User C\u001b[39;00m\n\u001b[1;32m      6\u001b[0m     [\u001b[38;5;241m2\u001b[39m, \u001b[38;5;241m2\u001b[39m, \u001b[38;5;241m1\u001b[39m, \u001b[38;5;241m2\u001b[39m, \u001b[38;5;241m4\u001b[39m]   \u001b[38;5;66;03m# User D\u001b[39;00m\n\u001b[1;32m      7\u001b[0m ])\n\u001b[1;32m      9\u001b[0m users \u001b[38;5;241m=\u001b[39m [\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mRaju\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mJohn\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mRamya\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mKishore\u001b[39m\u001b[38;5;124m\"\u001b[39m]\n\u001b[0;32m---> 10\u001b[0m df \u001b[38;5;241m=\u001b[39m pd\u001b[38;5;241m.\u001b[39mDataFrame(ratings, index\u001b[38;5;241m=\u001b[39musers, columns\u001b[38;5;241m=\u001b[39m[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mBahubali\u001b[39m\u001b[38;5;124m\"\u001b[39m,\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mMufasa\u001b[39m\u001b[38;5;124m\"\u001b[39m,\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mInterstellar\u001b[39m\u001b[38;5;124m\"\u001b[39m,\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mRRR\u001b[39m\u001b[38;5;124m\"\u001b[39m,\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mMrs\u001b[39m\u001b[38;5;124m\"\u001b[39m])\n\u001b[1;32m     11\u001b[0m \u001b[38;5;28mprint\u001b[39m(df)\n\u001b[1;32m     13\u001b[0m \u001b[38;5;66;03m# Function to compute similarity\u001b[39;00m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'pd' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "\n",
+    "#User-item rating matrix for 4 users\n",
+    "ratings = np.array([\n",
+    "    [5, 3, 4, 4, 2],  # User A\n",
+    "    [3, 1, 2, 3, 3],  # User B\n",
+    "    [4, 3, 4, 5, 1],  # User C\n",
+    "    [2, 2, 1, 2, 4]   # User D\n",
+    "])\n",
+    "\n",
+    "users = [\"Raju\", \"John\", \"Ramya\", \"Kishore\"]\n",
+    "df = pd.DataFrame(ratings, index=users, columns=[\"Bahubali\",\"Mufasa\",\"Interstellar\",\"RRR\",\"Mrs\"])\n",
+    "print(df)\n",
+    "\n",
+    "# Function to compute similarity\n",
+    "def compute_similarity(df):\n",
+    "    num_users = df.shape[0]\n",
+    "    similarity_results = []\n",
+    "\n",
+    "    for i in range(num_users):\n",
+    "        for j in range(i + 1, num_users):  # Avoid redundant pairs\n",
+    "            user1, user2 = df.iloc[i], df.iloc[j]\n",
+    "\n",
+    "            # Cosine Similarity\n",
+    "            cos_sim = 1 - cosine(user1, user2)\n",
+    "\n",
+    "            # Pearson Correlation Similarity\n",
+    "            pearson_sim, _ = pearsonr(user1, user2)\n",
+    "\n",
+    "            # Euclidean Distance Similarity\n",
+    "            euc_dist = euclidean(user1, user2)\n",
+    "            euc_sim = 1 / (1 + euc_dist)  # Normalize to [0,1]\n",
+    "\n",
+    "            similarity_results.append([users[i], users[j], cos_sim, pearson_sim, euc_sim])\n",
+    "\n",
+    "    return pd.DataFrame(similarity_results, columns=[\"User 1\", \"User 2\", \"Cosine Similarity\", \"Pearson Correlation\", \"Euclidean Similarity\"])\n",
+    "\n",
+    "# Compute similarity matrix\n",
+    "similarity_df = compute_similarity(df)\n",
+    "\n",
+    "# Display results\n",
+    "print(similarity_df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "28a3a57e-e87a-41d0-810c-d736186f66db",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
